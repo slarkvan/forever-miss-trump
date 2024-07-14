@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import styles from "./style.module.css";
-import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function Game() {
@@ -31,8 +30,8 @@ export default function Game() {
   }, [isCharging]);
 
   const moveTarget = () => {
-    const gameContainer = gameContainerRef.current;
-    const target = targetRef.current;
+    const gameContainer: any = gameContainerRef.current;
+    const target: any = targetRef.current;
 
     if (gameContainer && target) {
       const containerRect = gameContainer.getBoundingClientRect();
@@ -50,7 +49,7 @@ export default function Game() {
     }
   };
 
-  const handleMouseDown = (event) => {
+  const handleMouseDown = (event: any) => {
     if (event.button === 0) {
       // 左键点击
       setIsCharging(true);
@@ -58,7 +57,7 @@ export default function Game() {
     }
   };
 
-  const handleMouseUp = (event) => {
+  const handleMouseUp = (event: any) => {
     if (event.button === 0) {
       // 左键松开
       setIsCharging(false);
@@ -89,8 +88,8 @@ export default function Game() {
     }
   };
 
-  const createBullet = (x, y) => {
-    const gameContainer = gameContainerRef.current;
+  const createBullet = (x: any, y: any) => {
+    const gameContainer: any = gameContainerRef.current;
     if (gameContainer) {
       const bullet = document.createElement("div");
       bullet.className = styles.bullet;
@@ -105,7 +104,8 @@ export default function Game() {
     }
   };
 
-  const isHit = (x, y) => {
+  const isHit = (x: any, y: any) => {
+    console.log(x, y);
     return false; // 永远命中不了目标
   };
 
